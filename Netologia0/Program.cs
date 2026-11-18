@@ -7,38 +7,54 @@ namespace Netologia0
         static void Main(string[] args)
         {
             //Задание 1
-            int[] fibonacci = new int[] {0,1,1,2,3,5,8,13,21,34};
-            for (int i = 0; i < fibonacci.Length; i++)
+            Console.WriteLine("Фибоначчи");
+            int current = 1;
+            int previous = 0;
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine("Фиббоначи: " + fibonacci[i]);
+                Console.WriteLine(previous);
+                int next = current + previous;
+                previous = current;
+                current = next;
             }
             //Задание 2
-            int[] evenarray = new int[] {2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-            for (int a = 0; a < evenarray.Length; a++)
+            for (int a = 2; a <= 20; a+=2)
             {
-                if (evenarray[a] % 2 == 0)
-                {
-                    Console.WriteLine("Чётные числа: " + a);
-                }
+                Console.WriteLine("Чётные числа: " + a);
             }
             //Задание 3
             Console.WriteLine("Таблица умножения от 1 до 5");
-            for (int b = 1;b <= 5; b++)
+            for (int row = 1;row <= 5; row++)
             {
-                for (int c = 1; c <= 5; c++)
+                for (int column = 1; column <= 5; column++)
                 {
-                    Console.Write($"{b}*{c} = ");
-                    Console.WriteLine(" " + b * c);
+                    Console.Write($"{row * column}\t");
                 }
+                Console.WriteLine();
             }
+
             //Задание 4
             string password = "qwerty";
             string input;
+            int retrycount = 5;
             do
             {
                 Console.Write("Введите пароль: ");
                 input = Console.ReadLine();
-            } while (input != password);
+                if (input != password)
+                {
+                    Console.WriteLine("Неверный пароль!");
+                    retrycount--;
+                }
+                else if (input == password)
+                {
+                    Console.WriteLine("Добро пожаловать :)");
+                }
+                if (retrycount == 0)
+                {
+                    Console.WriteLine("Слишком много ошибок!!! Попробуйте снова через 30 минут.");
+                }
+            } while (input != password && retrycount != 0);
         }
     }
 }
