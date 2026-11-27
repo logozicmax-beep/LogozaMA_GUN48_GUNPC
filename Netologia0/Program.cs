@@ -18,8 +18,7 @@ namespace Netologia0
             Console.WriteLine(obj2.Name);
             Console.WriteLine(obj2.Damage);
             Console.WriteLine(obj2.Armor);
-            Console.WriteLine(obj.SetDamage(10));
-            var Dungeon = new Dungeon();
+            Console.WriteLine(obj.SetDamage(10)); 
         }
     }
 }
